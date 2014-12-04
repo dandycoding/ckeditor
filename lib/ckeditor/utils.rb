@@ -30,7 +30,7 @@ module Ckeditor
           js << "CKEDITOR.replace('#{dom_id}');"
         end
 
-        js << "}})();"
+        js << "} else { setTimeout(arguments.callee, 50); } })();"
         js.join(" ").html_safe
       end
 
