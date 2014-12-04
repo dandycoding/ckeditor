@@ -30,7 +30,7 @@ module Ckeditor
           js << "CKEDITOR.replace('#{dom_id}');"
         end
 
-        js << "} else { setTimeout(arguments.callee, 50); } })();"
+        js << "}})();"
         js.join(" ").html_safe
       end
 
@@ -92,7 +92,7 @@ module Ckeditor
           files += Dir[path.join('**', extensions)]
         end
 
-        files.inject([]) do |items, name| 
+        files.inject([]) do |items, name|
           file = Pathname.new(name)
           base = file.basename('.*').to_s
 
@@ -105,7 +105,7 @@ module Ckeditor
       end
 
       def extract_content_type(file)
-        
+
       end
     end
   end
